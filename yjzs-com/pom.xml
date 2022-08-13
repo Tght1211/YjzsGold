@@ -113,7 +113,7 @@
 
     <!-- 打包插件 -->
     <build>
-        <finalName>app</finalName>
+        <finalName>yjzs-com</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
