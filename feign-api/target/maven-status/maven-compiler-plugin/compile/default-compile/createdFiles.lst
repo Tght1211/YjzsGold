@@ -1,0 +1,6 @@
+com\yjzs\gold\feign\config\tex.class
+com\yjzs\gold\feign\clients\exphandler\TUserClientExceptionHandler.class
+com\yjzs\gold\feign\config\DefaultFeignConfiguration.class
+com\yjzs\gold\feign\config\solu.class
+com\yjzs\gold\feign\bean\TUser.class
+com\yjzs\gold\feign\clients\TUserClient.class

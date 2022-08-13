@@ -1,0 +1,33 @@
+{
+  "groups": [
+    {
+      "name": "pattern",
+      "type": "com.yjzs.gold.user.config.PatternProperties",
+      "sourceType": "com.yjzs.gold.user.config.PatternProperties"
+    },
+    {
+      "name": "spring.datasource",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.yjzs.gold.user.config.AppDruidConfig",
+      "sourceMethod": "dataSource()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "pattern.dateformat",
+      "type": "java.lang.String",
+      "sourceType": "com.yjzs.gold.user.config.PatternProperties"
+    },
+    {
+      "name": "pattern.env-shared-value",
+      "type": "java.lang.String",
+      "sourceType": "com.yjzs.gold.user.config.PatternProperties"
+    },
+    {
+      "name": "pattern.name",
+      "type": "java.lang.String",
+      "sourceType": "com.yjzs.gold.user.config.PatternProperties"
+    }
+  ],
+  "hints": []
+}

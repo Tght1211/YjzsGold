@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjzs.gold.com.mapper.TPostsMapper">
+  <resultMap id="BaseResultMap" type="com.yjzs.gold.com.bean.TPosts">
+    <result column="pos_id" jdbcType="INTEGER" property="posId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="pos_title" jdbcType="VARCHAR" property="posTitle" />
+    <result column="pos_content" jdbcType="VARCHAR" property="posContent" />
+    <result column="pos_date" jdbcType="TIMESTAMP" property="posDate" />
+    <result column="pos_hot" jdbcType="INTEGER" property="posHot" />
+    <result column="pos_status" jdbcType="CHAR" property="posStatus" />
+    <result column="pos_type" jdbcType="CHAR" property="posType" />
+    <result column="pos_off" jdbcType="CHAR" property="posOff" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    pos_id, user_id, pos_title, pos_content, pos_date, pos_hot, pos_status, pos_type, 
+    pos_off
+  </sql>
+  <select id="selectByExample" parameterType="com.yjzs.gold.com.bean.TPostsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_posts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+
+  <delete id="deleteByExample" parameterType="com.yjzs.gold.com.bean.TPostsExample">
+    delete from t_posts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yjzs.gold.com.bean.TPosts">
+    insert into t_posts (pos_id, user_id, pos_title, 
+      pos_content, pos_date, pos_hot, 
+      pos_status, pos_type, pos_off)
+    values (#{posId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{posTitle,jdbcType=VARCHAR}, 
+      #{posContent,jdbcType=VARCHAR}, #{posDate,jdbcType=TIMESTAMP}, #{posHot,jdbcType=INTEGER}, 
+      #{posStatus,jdbcType=CHAR}, #{posType,jdbcType=CHAR}, #{posOff,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yjzs.gold.com.bean.TPosts">
+    insert into t_posts
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="posId != null">
+        pos_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="posTitle != null">
+        pos_title,
+      </if>
+      <if test="posContent != null">
+        pos_content,
+      </if>
+      <if test="posDate != null">
+        pos_date,
+      </if>
+      <if test="posHot != null">
+        pos_hot,
+      </if>
+      <if test="posStatus != null">
+        pos_status,
+      </if>
+      <if test="posType != null">
+        pos_type,
+      </if>
+      <if test="posOff != null">
+        pos_off,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="posId != null">
+        #{posId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="posTitle != null">
+        #{posTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="posContent != null">
+        #{posContent,jdbcType=VARCHAR},
+      </if>
+      <if test="posDate != null">
+        #{posDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="posHot != null">
+        #{posHot,jdbcType=INTEGER},
+      </if>
+      <if test="posStatus != null">
+        #{posStatus,jdbcType=CHAR},
+      </if>
+      <if test="posType != null">
+        #{posType,jdbcType=CHAR},
+      </if>
+      <if test="posOff != null">
+        #{posOff,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yjzs.gold.com.bean.TPostsExample" resultType="java.lang.Long">
+    select count(*) from t_posts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_posts
+    <set>
+      <if test="record.posId != null">
+        pos_id = #{record.posId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.posTitle != null">
+        pos_title = #{record.posTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.posContent != null">
+        pos_content = #{record.posContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.posDate != null">
+        pos_date = #{record.posDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.posHot != null">
+        pos_hot = #{record.posHot,jdbcType=INTEGER},
+      </if>
+      <if test="record.posStatus != null">
+        pos_status = #{record.posStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.posType != null">
+        pos_type = #{record.posType,jdbcType=CHAR},
+      </if>
+      <if test="record.posOff != null">
+        pos_off = #{record.posOff,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_posts
+    set pos_id = #{record.posId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      pos_title = #{record.posTitle,jdbcType=VARCHAR},
+      pos_content = #{record.posContent,jdbcType=VARCHAR},
+      pos_date = #{record.posDate,jdbcType=TIMESTAMP},
+      pos_hot = #{record.posHot,jdbcType=INTEGER},
+      pos_status = #{record.posStatus,jdbcType=CHAR},
+      pos_type = #{record.posType,jdbcType=CHAR},
+      pos_off = #{record.posOff,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

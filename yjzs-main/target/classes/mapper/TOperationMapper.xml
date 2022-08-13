@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjzs.gold.main.mapper.TOperationMapper">
+  <resultMap id="BaseResultMap" type="com.yjzs.gold.main.bean.TOperation">
+    <result column="ope_id" jdbcType="INTEGER" property="opeId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="fund_id" jdbcType="INTEGER" property="fundId" />
+    <result column="ope_money" jdbcType="DECIMAL" property="opeMoney" />
+    <result column="ope_price" jdbcType="DECIMAL" property="opePrice" />
+    <result column="ope_num" jdbcType="DECIMAL" property="opeNum" />
+    <result column="ope_date" jdbcType="TIMESTAMP" property="opeDate" />
+    <result column="ope_status" jdbcType="CHAR" property="opeStatus" />
+    <result column="ope_tepe" jdbcType="CHAR" property="opeTepe" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ope_id, user_id, fund_id, ope_money, ope_price, ope_num, ope_date, ope_status, ope_tepe
+  </sql>
+  <select id="selectByExample" parameterType="com.yjzs.gold.main.bean.TOperationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.yjzs.gold.main.bean.TOperationExample">
+    delete from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yjzs.gold.main.bean.TOperation">
+    insert into t_operation (ope_id, user_id, fund_id, 
+      ope_money, ope_price, ope_num, 
+      ope_date, ope_status, ope_tepe
+      )
+    values (#{opeId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{fundId,jdbcType=INTEGER}, 
+      #{opeMoney,jdbcType=DECIMAL}, #{opePrice,jdbcType=DECIMAL}, #{opeNum,jdbcType=DECIMAL}, 
+      #{opeDate,jdbcType=TIMESTAMP}, #{opeStatus,jdbcType=CHAR}, #{opeTepe,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yjzs.gold.main.bean.TOperation">
+    insert into t_operation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="opeId != null">
+        ope_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="fundId != null">
+        fund_id,
+      </if>
+      <if test="opeMoney != null">
+        ope_money,
+      </if>
+      <if test="opePrice != null">
+        ope_price,
+      </if>
+      <if test="opeNum != null">
+        ope_num,
+      </if>
+      <if test="opeDate != null">
+        ope_date,
+      </if>
+      <if test="opeStatus != null">
+        ope_status,
+      </if>
+      <if test="opeTepe != null">
+        ope_tepe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="opeId != null">
+        #{opeId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="fundId != null">
+        #{fundId,jdbcType=INTEGER},
+      </if>
+      <if test="opeMoney != null">
+        #{opeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="opePrice != null">
+        #{opePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="opeNum != null">
+        #{opeNum,jdbcType=DECIMAL},
+      </if>
+      <if test="opeDate != null">
+        #{opeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opeStatus != null">
+        #{opeStatus,jdbcType=CHAR},
+      </if>
+      <if test="opeTepe != null">
+        #{opeTepe,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yjzs.gold.main.bean.TOperationExample" resultType="java.lang.Long">
+    select count(*) from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_operation
+    <set>
+      <if test="record.opeId != null">
+        ope_id = #{record.opeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.fundId != null">
+        fund_id = #{record.fundId,jdbcType=INTEGER},
+      </if>
+      <if test="record.opeMoney != null">
+        ope_money = #{record.opeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.opePrice != null">
+        ope_price = #{record.opePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.opeNum != null">
+        ope_num = #{record.opeNum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.opeDate != null">
+        ope_date = #{record.opeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.opeStatus != null">
+        ope_status = #{record.opeStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.opeTepe != null">
+        ope_tepe = #{record.opeTepe,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_operation
+    set ope_id = #{record.opeId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      fund_id = #{record.fundId,jdbcType=INTEGER},
+      ope_money = #{record.opeMoney,jdbcType=DECIMAL},
+      ope_price = #{record.opePrice,jdbcType=DECIMAL},
+      ope_num = #{record.opeNum,jdbcType=DECIMAL},
+      ope_date = #{record.opeDate,jdbcType=TIMESTAMP},
+      ope_status = #{record.opeStatus,jdbcType=CHAR},
+      ope_tepe = #{record.opeTepe,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

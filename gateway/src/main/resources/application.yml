@@ -1,0 +1,57 @@
+server:
+  port: 10010
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+spring:
+  redis:
+    host: 180.76.181.56
+    port: 6379
+    password: Ab123@wcj
+  application:
+    name: GATEWAY
+
+  cloud:
+    nacos:
+      server-addr: 106.14.164.228:8848  # nacos服务地址
+      discovery:
+        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 命名空间ID  ,注意这个在bootstrap中不能放disciver下面，要放config下面
+
+    gateway:
+      routes:  # 多个路由配置
+        - id: USER # 路由标示 ，必须唯一
+          #  uri: http://127.0.0.1:8001 # 路由的目标地址http就是固定地址
+          uri: lb://YJZS-USER # 路由的目标地址，lb = loadBalancel ,是负载均衡，后面跟服务名称
+          predicates: # 路由断言，判断请求是否符合规则,一种布尔表达式  spring 提供了很多个断言种不同的断言工厂
+            - Path=/user/**,/start/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+        #   filters:   #  Spring提供了31种不同的路由过滤器工厂
+        #    - AddRequestHeader=Truth,Yjzs is freaking awesome!
+        - id: MAIN
+          uri: lb://YJZS-MAIN
+          predicates:
+            - Path=/main/**
+        - id: COM
+          uri: lb://YJZS-COM
+          predicates:
+            - Path=/com/**
+      default-filters:   # 多个default，就给所有的请求都加
+        - AddRequestHeader=Truth,Yjzs is freaking awesome!
+      globalcors:  # 全局的跨域处理
+        add-to-simple-url-handler-mapping: true    # 解决options请求被拦截问题
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:  # 允许哪些网站的跨域请求
+              - "*"
+              - "http://localhost:6060"
+              - "http://www.yjzs.gold"
+            allowedMethods:
+              - "GET"
+              - "POST"
+              - "DELETE"
+              - "PUT"
+              - "OPTIONS"
+            allowedHeaders: "*"  # 允许在请求中携带头的信息
+#            allowedCredentails: true #是否允许携带cookie
+            maxAge: 360000 # 这次跨域检测的有效期，单位秒
