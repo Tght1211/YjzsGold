@@ -10,6 +10,8 @@ spring:
       discovery:
      #   cluster-name: HZ  # 集群名称，HZ代指杭州
         namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 命名空间ID  ,注意这个在bootstrap中不能放disciver下面，要放config下面
+        ip: 106.14.164.228
+        port: 5050
     #   ephemeral: false # 设置为非临时实例
 
 #  application:

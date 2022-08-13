@@ -23,6 +23,8 @@ spring:
 #        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 配置命名空间ID
       discovery:
         namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff # 服务命名空间ID
+        ip: 124.223.165.51
+        port: 6060
   datasource:
     username: root
     password: Ab123@wcj
