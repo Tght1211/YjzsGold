@@ -101,11 +101,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--mybatis-->
-            <dependency>
+            <!--mybatis 升级为 mybatis-plus-->
+<!--            <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
+            </dependency>-->
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.4.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -51,22 +51,16 @@
             <version>2.7.2</version>
         </dependency>
         <!--jdbc-->
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
             <version>2.7.2</version>
-        </dependency>
+        </dependency>-->
         <!-- web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.7.2</version>
-        </dependency>
-        <!--starter-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.2.2</version>
         </dependency>
         <!--mysql-->
         <dependency>
@@ -75,10 +69,6 @@
             <version>8.0.30</version>
         </dependency>
         <!--mybatis，父工程有-->
-        <!--        <dependency>
-                    <groupId>org.mybatis.spring.boot</groupId>
-                    <artifactId>mybatis-spring-boot-starter</artifactId>
-                </dependency>-->
         <!--test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

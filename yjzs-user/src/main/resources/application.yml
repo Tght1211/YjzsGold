@@ -43,10 +43,18 @@ spring:
     host: 180.76.181.56
     port: 6379
     password: Ab123@wcj
-mybatis:
-  #修改Mapper映射文件的路径
+#mybatis:
+#  #修改Mapper映射文件的路径
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.yjzs.gold.user.mapper
+# mybatis-plus配置
+mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
   type-aliases-package: com.yjzs.gold.user.mapper
+
+
   #0903xj的oss，存储路径/headImg
 oss:
   endpoint: oss-cn-shanghai.aliyuncs.com

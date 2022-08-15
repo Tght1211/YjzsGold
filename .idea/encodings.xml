@@ -5,11 +5,14 @@
     <file url="file://$PROJECT_DIR$/feign-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feign-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yjzs-com/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yjzs-main/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yjzs-main/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yjzs-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yjzs-user/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
