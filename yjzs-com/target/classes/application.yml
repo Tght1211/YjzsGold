@@ -25,10 +25,12 @@ spring:
       max-file-size: 10MB
       # 总文件大小
       max-request-size: 10MB
-mybatis:
+mybatis-plus:
   #修改Mapper映射文件的路径
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.yjzs.gold.user.mapper
+  configuration:
+    map-underscore-to-camel-case: true
   #0903xj的oss，存储路径/headImg
 oss:
   endpoint: oss-cn-shanghai.aliyuncs.com

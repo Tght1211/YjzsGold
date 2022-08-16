@@ -50,7 +50,7 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>2.7.2</version>
         </dependency>
-        <!--jdbc-->
+        <!--jdbc,有mybatis-plus了，就不需要-->
 <!--        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -68,7 +68,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.30</version>
         </dependency>
-        <!--mybatis，父工程有-->
+        <!--mybatis-plus，父工程有-->
         <!--test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

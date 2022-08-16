@@ -36,10 +36,12 @@ spring:
     port: 6379
     password: Ab123@wcj
 
-mybatis:
+mybatis-plus:
   #修改Mapper映射文件的路径
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.yjzs.gold.main.mapper
+  configuration:
+    map-underscore-to-camel-case: true
   #0903xj的oss，存储路径/headImg
 
 

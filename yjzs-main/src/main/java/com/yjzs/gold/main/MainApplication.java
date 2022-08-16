@@ -15,7 +15,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @EnableScheduling 开启定时功能的注解
  * @EnableAsync 开启异步注解功能
  */
-@EnableAsync
 @EnableScheduling
 @MapperScan(value = {"com.yjzs.gold.main.mapper"})
 @SpringBootApplication
