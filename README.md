@@ -1,5 +1,17 @@
 # 养基助手
 
+
+> 修改gitignore文件生效--
+> 先前往项目根目录文件夹，右键 git bash
+
+```shell
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+```
+
+
+
 ## 服务信息
 
 > 初始版本 20220813   毕业设计修订版
