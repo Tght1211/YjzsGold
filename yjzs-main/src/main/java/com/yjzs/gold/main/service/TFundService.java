@@ -1,5 +1,6 @@
 package com.yjzs.gold.main.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.yjzs.gold.main.bean.TFund;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * @author Tght
  */
-public interface TFundService {
+public interface TFundService extends IService<TFund> {
     List<TFund> selectFundCode(String fundCode,Integer pageNum,Integer pageSize);
 
     int addFundCode(String fundCode);

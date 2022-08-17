@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.yjzs.gold.com.bean.*;
 import com.yjzs.gold.com.mapper.TCollectMapper;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TCommentServiceImpl implements TCommentService {
+public class TCommentServiceImpl extends ServiceImpl<TCommentMapper,TComment> implements TCommentService {
     @Autowired
     TCommentMapper tCommentMapper;
 

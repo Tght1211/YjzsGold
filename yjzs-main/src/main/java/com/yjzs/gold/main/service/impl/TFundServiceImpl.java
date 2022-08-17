@@ -1,6 +1,7 @@
 package com.yjzs.gold.main.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.yjzs.gold.main.bean.TFund;
 import com.yjzs.gold.main.bean.TFundExample;
@@ -16,7 +17,7 @@ import java.util.List;
  * @author Tght
  */
 @Service
-public class TFundServiceImpl implements TFundService {
+public class TFundServiceImpl extends ServiceImpl<TFundMapper,TFund> implements TFundService {
 
     @Autowired
     TFundMapper tFundMapper;

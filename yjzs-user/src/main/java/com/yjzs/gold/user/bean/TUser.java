@@ -1,7 +1,10 @@
 package com.yjzs.gold.user.bean;
 
+import lombok.ToString;
+
 import java.util.Date;
 
+@ToString
 public class TUser {
     private Integer userId;
 
@@ -56,7 +59,7 @@ public class TUser {
     }
 
     public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword == null ? null : userPassword.trim();
+        this.userPassword = userPassword ==null  ? null : userPassword.trim();
     }
 
     public String getUserType() {

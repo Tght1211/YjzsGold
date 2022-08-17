@@ -1,10 +1,11 @@
 package com.yjzs.gold.main.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.yjzs.gold.main.bean.TOptional;
 
 import java.util.List;
 
-public interface TOptionalService {
+public interface TOptionalService extends IService<TOptional> {
 
     List<TOptional> selectMyOpt(Integer id, Integer pageNum, Integer pageSize);
 

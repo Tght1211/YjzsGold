@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yjzs.gold.com.bean.*;
 import com.yjzs.gold.com.mapper.TCollectMapper;
 import com.yjzs.gold.com.service.TCollectService;
@@ -10,7 +11,7 @@ import java.util.List;
 
 
 @Service
-public class TCollectServiceImpl implements TCollectService {
+public class TCollectServiceImpl extends ServiceImpl<TCollectMapper,TCollect> implements TCollectService {
     @Autowired
     TCollectMapper tCollectMapper;
 

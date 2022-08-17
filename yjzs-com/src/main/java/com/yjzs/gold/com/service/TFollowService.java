@@ -1,4 +1,7 @@
 package com.yjzs.gold.com.service;
 
-public interface TFollowService {
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.yjzs.gold.com.bean.TFollow;
+
+public interface TFollowService extends IService<TFollow> {
 }

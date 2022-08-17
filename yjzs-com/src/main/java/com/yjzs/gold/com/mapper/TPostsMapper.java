@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.com.bean.TPosts;
 import com.yjzs.gold.com.bean.TPostsExample;
 import java.util.List;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TPostsMapper {
+public interface TPostsMapper extends BaseMapper<TPosts> {
     long countByExample(TPostsExample example);
 
     int deleteByExample(TPostsExample example);

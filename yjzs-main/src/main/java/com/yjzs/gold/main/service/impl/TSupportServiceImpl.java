@@ -1,5 +1,6 @@
 package com.yjzs.gold.main.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yjzs.gold.main.bean.TFund;
 import com.yjzs.gold.main.bean.TFundExample;
 import com.yjzs.gold.main.bean.TSupport;
@@ -16,7 +17,7 @@ import java.util.List;
  * @author Tght
  */
 @Service
-public class TSupportServiceImpl implements TSupportService {
+public class TSupportServiceImpl extends ServiceImpl<TSupportMapper,TSupport> implements TSupportService {
 
     @Autowired
     TFundMapper tFundMapper;

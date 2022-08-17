@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.yjzs.gold.com.bean.TCollect;
 import com.yjzs.gold.com.bean.TCollectExample;
@@ -18,7 +19,7 @@ import java.util.List;
  * @author Tght
  */
 @Service
-public class TPostsServiceImpl implements TPostsService {
+public class TPostsServiceImpl extends ServiceImpl<TPostsMapper,TPosts> implements TPostsService {
 
     @Autowired
     TPostsMapper tPostsMapper;

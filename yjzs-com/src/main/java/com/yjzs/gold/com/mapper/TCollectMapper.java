@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.com.bean.TCollect;
 import com.yjzs.gold.com.bean.TCollectExample;
 import java.util.List;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TCollectMapper {
+public interface TCollectMapper extends BaseMapper<TCollect> {
     long countByExample(TCollectExample example);
 
     int deleteByExample(TCollectExample example);

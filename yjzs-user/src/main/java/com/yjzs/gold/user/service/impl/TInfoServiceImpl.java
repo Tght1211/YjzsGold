@@ -1,6 +1,8 @@
 package com.yjzs.gold.user.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yjzs.gold.user.bean.TInfo;
+import com.yjzs.gold.user.mapper.TInfoMapper;
 import com.yjzs.gold.user.service.TInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class TInfoServiceImpl implements TInfoService {
+public class TInfoServiceImpl extends ServiceImpl<TInfoMapper,TInfo> implements TInfoService {
 
     @Override
     public TInfo getInfobyUserId(Integer id) {

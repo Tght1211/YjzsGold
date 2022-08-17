@@ -1,5 +1,6 @@
 package com.yjzs.gold.user.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.yjzs.gold.user.bean.TUser;
 import com.yjzs.gold.user.vo.req.UserUpdateVo;
 import com.yjzs.gold.user.vo.resp.UserRespVo;
@@ -7,7 +8,7 @@ import com.yjzs.gold.user.vo.resp.UserRespVo;
 /**
  * @author Tght
  */
-public interface TUserService {
+public interface TUserService extends IService<TUser> {
 
     int saveUser(UserRespVo vo);
 

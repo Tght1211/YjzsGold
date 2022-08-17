@@ -1,5 +1,6 @@
 package com.yjzs.gold.main.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.main.bean.TFund;
 import com.yjzs.gold.main.bean.TFundExample;
 import java.util.List;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TFundMapper {
+public interface TFundMapper extends BaseMapper<TFund> {
     long countByExample(TFundExample example);
 
     int deleteByExample(TFundExample example);

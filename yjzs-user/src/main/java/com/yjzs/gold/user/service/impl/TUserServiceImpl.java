@@ -1,5 +1,6 @@
 package com.yjzs.gold.user.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yjzs.gold.user.bean.TUser;
 import com.yjzs.gold.user.bean.TUserExample;
 import com.yjzs.gold.user.mapper.TUserMapper;
@@ -14,6 +15,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -23,7 +25,7 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class TUserServiceImpl implements TUserService {
+public class TUserServiceImpl extends ServiceImpl<TUserMapper,TUser> implements TUserService {
 
     @Autowired
     TUserMapper tUserMapper;
@@ -46,9 +48,8 @@ public class TUserServiceImpl implements TUserService {
             tUser.setUserCreateTime(vo.getUserCreateTime());
             tUser.setUserStatus(vo.getUserStatus());
             tUser.setUserType(vo.getUserType());
-
+//            int insert = tUserMapper.insert(tUser);
             int i = tUserMapper.insertSelective(tUser);
-
             return i;
         } catch (Exception e) {
             e.printStackTrace();

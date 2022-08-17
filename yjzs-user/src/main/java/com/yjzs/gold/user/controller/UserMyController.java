@@ -1,6 +1,7 @@
 package com.yjzs.gold.user.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yjzs.gold.user.bean.TUser;
 import com.yjzs.gold.user.config.OssTemplate;
 import com.yjzs.gold.user.service.TUserService;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**

@@ -1,5 +1,6 @@
 package com.yjzs.gold.main.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.main.bean.TOptional;
 import com.yjzs.gold.main.bean.TOptionalExample;
 import java.util.List;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 //@Mapper
 
-public interface TOptionalMapper {
+public interface TOptionalMapper extends BaseMapper<TOptional> {
     long countByExample(TOptionalExample example);
 
     int deleteByExample(TOptionalExample example);

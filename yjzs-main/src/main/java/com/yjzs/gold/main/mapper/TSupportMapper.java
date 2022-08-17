@@ -1,5 +1,6 @@
 package com.yjzs.gold.main.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.main.bean.TSupport;
 import com.yjzs.gold.main.bean.TSupportExample;
 import java.util.List;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TSupportMapper {
+public interface TSupportMapper extends BaseMapper<TSupport> {
     long countByExample(TSupportExample example);
 
     int deleteByExample(TSupportExample example);

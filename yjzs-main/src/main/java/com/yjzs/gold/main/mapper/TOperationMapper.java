@@ -1,5 +1,6 @@
 package com.yjzs.gold.main.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.main.bean.TOperation;
 import com.yjzs.gold.main.bean.TOperationExample;
 import java.util.List;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TOperationMapper {
+public interface TOperationMapper extends BaseMapper<TOperation> {
     long countByExample(TOperationExample example);
 
     int deleteByExample(TOperationExample example);

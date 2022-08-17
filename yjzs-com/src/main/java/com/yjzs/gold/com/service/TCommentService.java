@@ -1,11 +1,12 @@
 package com.yjzs.gold.com.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.yjzs.gold.com.bean.TComment;
 import com.yjzs.gold.com.bean.TPosts;
 
 import java.util.List;
 
-public interface TCommentService {
+public interface TCommentService extends IService<TComment> {
     int selectNum(Integer posId);
 
     String isComment(Integer posId, String userId);

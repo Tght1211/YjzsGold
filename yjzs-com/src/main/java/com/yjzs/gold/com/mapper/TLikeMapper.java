@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.com.bean.TLike;
 import com.yjzs.gold.com.bean.TLikeExample;
 import java.util.List;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TLikeMapper {
+public interface TLikeMapper extends BaseMapper<TLike> {
     long countByExample(TLikeExample example);
 
     int deleteByExample(TLikeExample example);

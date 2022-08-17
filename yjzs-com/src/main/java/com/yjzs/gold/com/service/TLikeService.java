@@ -1,8 +1,9 @@
 package com.yjzs.gold.com.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.yjzs.gold.com.bean.TLike;
 
-public interface TLikeService {
+public interface TLikeService extends IService<TLike> {
     String isLike(Integer posId, String userId);
 
     int addLike(TLike tLike);

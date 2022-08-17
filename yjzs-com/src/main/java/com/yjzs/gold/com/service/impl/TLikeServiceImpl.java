@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yjzs.gold.com.bean.TLike;
 import com.yjzs.gold.com.bean.TLikeExample;
 import com.yjzs.gold.com.mapper.TLikeMapper;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TLikeServiceImpl implements TLikeService {
+public class TLikeServiceImpl extends ServiceImpl<TLikeMapper,TLike> implements TLikeService {
 
     @Autowired
     TLikeMapper tLikeMapper;

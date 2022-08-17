@@ -2,6 +2,7 @@ package com.yjzs.gold.main.service.impl;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.yjzs.gold.main.bean.*;
 import com.yjzs.gold.main.mapper.TFundMapper;
@@ -19,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class TOptionalServiceImpl implements TOptionalService {
+public class TOptionalServiceImpl extends ServiceImpl<TOptionalMapper,TOptional> implements TOptionalService {
 
 
     @Autowired

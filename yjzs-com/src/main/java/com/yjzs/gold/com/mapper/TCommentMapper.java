@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.com.bean.TComment;
 import com.yjzs.gold.com.bean.TCommentExample;
 import java.util.List;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TCommentMapper {
+public interface TCommentMapper extends BaseMapper<TComment> {
     long countByExample(TCommentExample example);
 
     int deleteByExample(TCommentExample example);

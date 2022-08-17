@@ -1,5 +1,6 @@
 package com.yjzs.gold.user.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.user.bean.TUser;
 import com.yjzs.gold.user.bean.TUserExample;
 import java.util.List;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TUserMapper {
+public interface TUserMapper extends BaseMapper<TUser>{
     long countByExample(TUserExample example);
 
     int deleteByExample(TUserExample example);

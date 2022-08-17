@@ -1,5 +1,6 @@
 package com.yjzs.gold.com.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yjzs.gold.com.bean.TFollow;
 import com.yjzs.gold.com.bean.TFollowExample;
 import java.util.List;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 //@Mapper
-public interface TFollowMapper {
+public interface TFollowMapper extends BaseMapper<TFollow> {
     long countByExample(TFollowExample example);
 
     int deleteByExample(TFollowExample example);
