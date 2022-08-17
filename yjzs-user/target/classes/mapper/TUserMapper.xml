@@ -109,7 +109,8 @@
       #{userPlate,jdbcType=INTEGER}, #{userImgUrl,jdbcType=VARCHAR}, #{userSex,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.yjzs.gold.user.bean.TUser">
+
+    <insert id="insertSelective" parameterType="com.yjzs.gold.user.bean.TUser">
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">

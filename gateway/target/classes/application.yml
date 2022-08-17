@@ -17,9 +17,9 @@ spring:
     nacos:
       server-addr: 106.14.164.228:8848  # nacos服务地址
       discovery:
-        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 命名空间ID  ,注意这个在bootstrap中不能放disciver下面，要放config下面
-        ip: 39.105.218.27
-        port: 10010
+        namespace: 05f5cf0f-116d-4640-869e-196087f99e72  # 命名空间ID  ,注意这个在bootstrap中不能放disciver下面，要放config下面
+#        ip: 39.105.218.27
+#        port: 10010
 
     gateway:
       routes:  # 多个路由配置

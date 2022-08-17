@@ -16,8 +16,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.params.shadow.com.univocity.parsers.common.NormalizedString.toArray;
 
 
 /**
@@ -184,6 +189,9 @@ public class FundController {
                         return resp;
                     }
                 }
+                //降序排序
+                listVo = listVo.stream().sorted(Comparator.comparing(FundVo::getGszzl).reversed()).collect(Collectors.toList());
+                // Collections.sort(listVo, Comparator.comparing(FundVo::getGszzl).reversed());
                 fundPageListVo.setRecords(listVo);
                 return AppResponse.ok(fundPageListVo);
             }
@@ -289,6 +297,7 @@ public class FundController {
 
         try {
             // 原始数据
+            System.out.println("进来了");
             List<TFund> list = tFundService.selectFund(pageNum,pageSize);
             List<FundVo> listVo = new ArrayList<>();
             int total = tFundService.countFund();
@@ -316,7 +325,7 @@ public class FundController {
                 }
             }
             //排序一下,估算涨跌最大的放前面.
-            // ......//: TO DAY
+            listVo = listVo.stream().sorted(Comparator.comparing(FundVo::getGszzl).reversed()).collect(Collectors.toList());
             fundPageListVo.setRecords(listVo);
             // 返回包装了集合和total的数据
             return AppResponse.ok(fundPageListVo);

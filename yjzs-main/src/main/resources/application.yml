@@ -22,9 +22,9 @@ spring:
 #        file-extension: yaml # 3、文件后缀名   （这个三个信息对应配文件的dataID）
 #        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 配置命名空间ID
       discovery:
-        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff # 服务命名空间ID
-        ip: 124.223.165.51
-        port: 6060
+        namespace: 05f5cf0f-116d-4640-869e-196087f99e72 # 服务命名空间ID
+#        ip: 124.223.165.51
+#        port: 6060
   datasource:
     username: root
     password: Ab123@wcj
