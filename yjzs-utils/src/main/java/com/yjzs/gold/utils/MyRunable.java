@@ -24,32 +24,40 @@ public class MyRunable implements Runnable {
         this.arr = arr;
     }
 
-    public Jedis init(){
-        Jedis jedis = new Jedis("106.14.164.228", 6379);
+    public static Jedis init() {
+        Jedis jedis = new Jedis("180.76.181.56", 6379);
         jedis.auth("Ab123@wcj");
         return jedis;
     }
 
 
-    @SneakyThrows
     public void run() {
-
-        while (!Thread.currentThread().isInterrupted()) {
-            JSONObject jsonObject = null;
-            for (int i = this.startId; i <= this.endId; i++) {
+        JSONObject jsonObject;
+        for (int i = this.startId; i < Math.min(this.endId, arr.length); i++) {
+            try {
                 jsonObject = FundUtils.getByFundCode_7Info(arr[i]);
-                System.out.println(jsonObject.getString("name") + ":" + jsonObject.getString("gszzl") + "%");
+            } catch (Exception e) {
+                System.out.println("----------------------获取基金接口信息异常----------------------");
+                throw new RuntimeException(e);
+            }
+            System.out.println(arr[i] + ":" + jsonObject.getString("name") + ":" + jsonObject.getString("gszzl") + "%");
+            if (jsonObject.get("gztime").equals(AppDateUtils.getFormatTimeHM())) {
                 // 在这里将基金数据放入redis中，以list的方式
                 // 一天的交易时间为9：30 - 11：30  and  13：00 - 15：00 共240分钟。也即是一个基金代码对应240条数据。
                 // 第二日 9：30 之前删除。再重新创建list。（前提都是要满足交易日。）
                 //存储 --- 当天日期：gsjz：code , jsonObject
                 Jedis jedis = init();
-                jedis.lpush(AppDateUtils.getDayTime()+":"+"gsjz"+":"+arr[i], jsonObject.toJSONString());
-            }
-            try {
-                Thread.sleep(60 * 1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                String headKey = AppDateUtils.getDayTime() + ":" + "gsjz" + ":" + arr[i];
+                String tailValue = jsonObject.toJSONString();
+                System.out.println(headKey + "----------------------------------------" + tailValue);
+//                jedis.lpush(AppDateUtils.getDayTime()+":"+"gsjz"+":"+arr[i], jsonObject.toJSONString());
+                jedis.lpush(headKey, tailValue);
+            } else {
+                Jedis jedis = init();
+                if (jedis.llen(AppDateUtils.getDayTime() + ":" + "errorFund" + ":" + arr[i]) > 10) {
+                    break;
+                }
+                jedis.lpush(AppDateUtils.getDayTime() + ":" + "errorFund" + ":" + arr[i], "未更新:" + jsonObject.toJSONString());
             }
         }
     }

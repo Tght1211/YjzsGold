@@ -52,12 +52,8 @@ import org.jsoup.nodes.Element;
 public class FundUtils {
 
     /**
-     * 根据基金代码实时获取基金数据
+     * 根据基金代码==实时==获取基金数据
      * 基金代码、基金名称、净值日期、当日净值、估算净值、估算涨跌百分比、估算时间  7个数据
-     *
-     * @param fundCode
-     * @return
-     * @throws Exception
      */
     public static JSONObject getByFundCode_7Info(String fundCode) throws Exception {
         long timeNew = System.currentTimeMillis();
@@ -73,8 +69,8 @@ public class FundUtils {
         JSONArray temp = JSONArray.parseArray(str2);
 
         JSONObject obj = null;
-        for (int i = 0; i < temp.size(); i++) {
-            obj = (JSONObject) temp.get(i);
+        for (Object x : temp) {
+            obj = (JSONObject) x;
         }
         return obj;
     }
@@ -82,8 +78,6 @@ public class FundUtils {
     /**
      * 所有基金接口
      * 不太好弄，先放着
-     * @param fundCode
-     * @throws Exception
      */
     public static void getByFundCode_Info(String fundCode) throws Exception {
         long  timeNew =  System.currentTimeMillis();

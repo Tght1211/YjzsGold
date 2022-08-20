@@ -15,50 +15,38 @@ public class AppDateUtils {
 
     public static int DayNum(Date date1 ,Date date2){
         // 算时间差
-        int days = (int) ((date1.getTime() - date2.getTime()) / (1000*3600*24));
-        return days;
+        return (int) ((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
     }
 
 
     /**
      * 字符串转Date
-     * @param time
-     * @return
-     * @throws ParseException
      */
     public static Date StringToDate(String time) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = format.parse(time);
-        return date;
+        return format.parse(time);
     }
+
     /**
      * Date转字符串    详细到天
-     *
-     * @return
-     * @throws ParseException
      */
-    public static String DateDayToString(Date date) throws ParseException {
+    public static String DateDayToString(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String s = sdf.format(date);
-        return s;
+        return sdf.format(date);
     }
+
     /**
      * 字符串转Date    详细到天
-     * @param time
-     * @return
-     * @throws ParseException
+     *
      */
     public static Date StringToDateDay(String time) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = format.parse(time);
-        return date;
+        return format.parse(time);
     }
 
 
     /**
      * 获取时间，Data类型
-     * @return
-     * @throws ParseException
      */
     public static Date getDateTime() throws ParseException {
         //定义一个模板
@@ -67,42 +55,39 @@ public class AppDateUtils {
         SimpleDateFormat sd = new SimpleDateFormat(str);
         //解析字符串的文本，生成 Date
         Date d = sd.parse(getFormatTime());
-        Timestamp timestamp = new Timestamp(d.getTime());
-        return timestamp;
+        return new Timestamp(d.getTime());
     }
 
 
     public static String getDayTime() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String string = format.format(new Date());
-        return string;
+        return format.format(new Date());
     }
 
+    public static String getFormatTimeHM() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return format.format(new Date());
+    }
 
 
     public static String getFormatTime() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String string = format.format(new Date());
-        return string;
+        return format.format(new Date());
     }
 
     /**
      * 根据日志格式返回当前系统时间日期、时间字符串
-     * @param  ：yyyy-MM-dd HH:mm:ss
-     * @return
+     * yyyy-MM-dd HH:mm:ss
      */
     public static String getFormatTime(String pattern) {
         SimpleDateFormat format = new SimpleDateFormat(pattern);
-        String string = format.format(new Date());
-        return string;
+        return format.format(new Date());
     }
-
 
 
     public static String getFormatTime(String pattern, Date date) {
         SimpleDateFormat format = new SimpleDateFormat(pattern);
-        String string = format.format(date);
-        return string;
+        return format.format(date);
     }
 
 }
