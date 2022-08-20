@@ -54,7 +54,8 @@ public class MyRunable implements Runnable {
                 jedis.lpush(headKey, tailValue);
             } else {
                 Jedis jedis = init();
-                if (jedis.llen(AppDateUtils.getDayTime() + ":" + "errorFund" + ":" + arr[i]) > 10) {
+                // 10次机会，还不更新的，判定为休休息日
+                if (jedis.llen(AppDateUtils.getDayTime() + ":" + "errorFund" + ":" + arr[i]) >= 10) {
                     break;
                 }
                 jedis.lpush(AppDateUtils.getDayTime() + ":" + "errorFund" + ":" + arr[i], "未更新:" + jsonObject.toJSONString());
