@@ -2,15 +2,15 @@ server:
   port: 6060 # 客户端接口
 
 spring:
-#  application:
-#    name: YJZS_MAIN
-#  cloud:
-#    nacos:
-#      server-addr: 106.14.164.228:8848 # nacos地址
-#      discovery:
-#        cluster-name: HZ  # 集群名称，HZ代指杭州
-#        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 命名空间ID
-#        ephemeral: false # 设置为非临时实例
+  #  application:
+  #    name: YJZS_MAIN
+  #  cloud:
+  #    nacos:
+  #      server-addr: 106.14.164.228:8848 # nacos地址
+  #      discovery:
+  #        cluster-name: HZ  # 集群名称，HZ代指杭州
+  #        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 命名空间ID
+  #        ephemeral: false # 设置为非临时实例
   application:
     name: YJZS-MAIN    # 1、服务名称
   profiles:
@@ -23,10 +23,10 @@ spring:
       #        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 配置命名空间ID  yjzs  生产环境
       #      namespace: 05f5cf0f-116d-4640-869e-196087f99e72 # 服务命名空间ID  dev  开发环境
       discovery:
-        namespace: 05f5cf0f-116d-4640-869e-196087f99e72 # 服务命名空间ID  dev  开发环境
-  #        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff # 服务命名空间ID
-  #        ip: 124.223.165.51
-  #        port: 6060
+        #        namespace: 05f5cf0f-116d-4640-869e-196087f99e72 # 服务命名空间ID  dev  开发环境
+        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff # 服务命名空间ID
+        ip: 124.223.165.51
+        port: 6060
   datasource:
     username: root
     password: Ab123@wcj
