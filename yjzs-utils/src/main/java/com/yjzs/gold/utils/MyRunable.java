@@ -57,7 +57,7 @@ public class MyRunable implements Runnable {
             Date yesDate = new Date(date.getTime() - (1000 * 3600 * 24));
             String sData = AppDateUtils.DateDayToStringEasy(yesDate);
             sData = sData + " 15:00";
-            if (jsonObject.get("gztime").equals(sData)) {
+            if (!jsonObject.get("gztime").equals(sData)) {
                 // 在这里将基金数据放入redis中，以list的方式
                 // 一天的交易时间为9：30 - 11：30  and  13：00 - 15：00 共240分钟。也即是一个基金代码对应240条数据。
                 // 第二日 9：30 之前删除。再重新创建list。（前提都是要满足交易日。）

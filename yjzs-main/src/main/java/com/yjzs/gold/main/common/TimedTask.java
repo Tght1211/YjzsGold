@@ -80,7 +80,9 @@ public class TimedTask {
         int size = codeArr.length;
         int x;
         // 1.开启线程获取每个基金的数据，并存入redis，定义线程的多少
-        if (size <= 50) {
+        if (size <= 25) {
+            x = 1;
+        } else if (size <= 50) {
             x = 2;
         } else if (50 < size && size <= 100) {
             x = 4;
