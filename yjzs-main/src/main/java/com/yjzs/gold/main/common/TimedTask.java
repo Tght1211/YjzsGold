@@ -117,9 +117,9 @@ public class TimedTask {
     }
 
     /**
-     * C.早上 11:00-11:30
+     * C.早上 11:00-11:35  多5分钟
      */
-    @Scheduled(cron = "0 0-30 11 * * ?")
+    @Scheduled(cron = "0 0-35 11 * * ?")
     private void scheduledMorningC() {
 
         System.err.println("执行静态定时任务时间-----开始同步数据到Redis-----: " + LocalDateTime.now() + "----早上 11:00-11:30");
@@ -138,9 +138,9 @@ public class TimedTask {
     }
 
     /**
-     * 0 0 15 * * ?  每日下午15:00，请求一次
+     * 0 0-5 15 * * ?  每日下午15:05，请求一次   多五分钟
      */
-    @Scheduled(cron = "0 0 15 * * ?")
+    @Scheduled(cron = "0 0-5 15 * * ?")
     private void scheduledAfternoonB() {
 
         System.err.println("执行静态定时任务时间-----开始同步数据到Redis-----: " + LocalDateTime.now() + "----下午 15:00");

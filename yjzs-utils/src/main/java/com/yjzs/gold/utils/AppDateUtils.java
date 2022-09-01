@@ -36,8 +36,15 @@ public class AppDateUtils {
     }
 
     /**
+     * Date转字符串    详细到天
+     */
+    public static String DateDayToStringEasy(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+
+    /**
      * 字符串转Date    详细到天
-     *
      */
     public static Date StringToDateDay(String time) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
