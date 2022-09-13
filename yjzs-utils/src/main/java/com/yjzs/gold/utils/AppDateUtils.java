@@ -8,16 +8,43 @@ import java.util.Date;
 
 /**
  * 获取格式化好的当前时间
+ *
  * @author Tght
  */
 public class AppDateUtils {
+    public static void main(String[] args) throws ParseException {
+        // 当前时间
+        Date dateTime = AppDateUtils.getDateTime();
+        // 获取距当前的前一天时间
+        Date date = AppDateUtils.DayToDay(dateTime, 1);
+        // 将date转为字符串
+        String s = AppDateUtils.DateDayToString(date);
+        // 2022-09-12 20:04:46
+        System.out.println(s);
+    }
 
-
-    public static int DayNum(Date date1 ,Date date2){
-        // 算时间差
+    /**
+     *  算Date的时间差
+     *
+     * @param date1 date1
+     * @param date2 date2
+     * @return int
+     */
+    public static int DayNum(Date date1, Date date2) {
         return (int) ((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
     }
 
+
+    /**
+     * 算出指定时间的前几天
+     *
+     * @param date 日期
+     * @param day  一天
+     * @return {@link Date}
+     */
+    public static Date DayToDay(Date date, int day) {
+        return new Date(date.getTime() - (1000 * 3600 * 24) * day);
+    }
 
     /**
      * 字符串转Date
@@ -28,7 +55,7 @@ public class AppDateUtils {
     }
 
     /**
-     * Date转字符串    详细到天
+     * Date转字符串    详细到秒
      */
     public static String DateDayToString(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -44,7 +71,7 @@ public class AppDateUtils {
     }
 
     /**
-     * 字符串转Date    详细到天
+     * 字符串转Date    详细到秒
      */
     public static Date StringToDateDay(String time) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -66,24 +93,41 @@ public class AppDateUtils {
     }
 
 
+    /**
+     * 获取当前时间
+     * 精确到天数
+     *
+     * @return {@link String}
+     */
     public static String getDayTime() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         return format.format(new Date());
     }
 
+    /**
+     * 获取当前时间
+     * 精确到分钟
+     *
+     * @return {@link String}
+     */
     public static String getFormatTimeHM() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         return format.format(new Date());
     }
 
-
+    /**
+     * 获取当前时间
+     * 精确到秒
+     *
+     * @return {@link String}
+     */
     public static String getFormatTime() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return format.format(new Date());
     }
 
     /**
-     * 根据日志格式返回当前系统时间日期、时间字符串
+     * 自定义格式返回当前系统时间日期、时间字符串
      * yyyy-MM-dd HH:mm:ss
      */
     public static String getFormatTime(String pattern) {
@@ -92,6 +136,13 @@ public class AppDateUtils {
     }
 
 
+    /**
+     * 自定义指定时间的格式
+     *
+     * @param pattern 模式
+     * @param date    日期
+     * @return {@link String}
+     */
     public static String getFormatTime(String pattern, Date date) {
         SimpleDateFormat format = new SimpleDateFormat(pattern);
         return format.format(date);

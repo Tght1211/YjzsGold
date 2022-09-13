@@ -12,6 +12,17 @@
     <artifactId>yjzs-com</artifactId>
 
     <dependencies>
+        <!--poi-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.0.1</version>
+        </dependency>
         <!-- 安装阿里云SDK -->
         <dependency>
             <groupId>com.aliyun.oss</groupId>
