@@ -2,39 +2,39 @@ server:
   port: 6060 # 客户端接口
 
 spring:
-#  application:
-#    name: YJZS_MAIN
-#  cloud:
-#    nacos:
-#      server-addr: 106.14.164.228:8848 # nacos地址
-#      discovery:
-#        cluster-name: HZ  # 集群名称，HZ代指杭州
-#        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 命名空间ID
-#        ephemeral: false # 设置为非临时实例
+  #  application:
+  #    name: YJZS_MAIN
+  #  cloud:
+  #    nacos:
+  #      server-addr: 1.15.62.118:8848 # nacos地址
+  #      discovery:
+  #        cluster-name: HZ  # 集群名称，HZ代指杭州
+  #        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 命名空间ID
+  #        ephemeral: false # 设置为非临时实例
   application:
-    name: YJZS-MAIN    # 1、服务名称
+    name: FUND-MAIN    # 1、服务名称
   profiles:
     active: dev # 2、开发环境
   cloud:
     nacos:
-      server-addr: 106.14.164.228:8848 # nacos地址
+      server-addr: 1.15.62.118:8848 # nacos地址
       #      config:
       #        file-extension: yaml # 3、文件后缀名   （这个三个信息对应配文件的dataID）
       #        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff  # 配置命名空间ID  yjzs  生产环境
-      #      namespace: 05f5cf0f-116d-4640-869e-196087f99e72 # 服务命名空间ID  dev  开发环境
+      #      namespace: 744f4485-b836-4c86-be62-fe4972127e65 # 服务命名空间ID  dev  开发环境
       discovery:
-        namespace: 05f5cf0f-116d-4640-869e-196087f99e72 # 服务命名空间ID  dev  开发环境
+        namespace: 744f4485-b836-4c86-be62-fe4972127e65 # 服务命名空间ID  dev  开发环境
   #        namespace: 067afb1c-03ab-49e0-8177-3a76cacfe6ff # 服务命名空间ID
   #        ip: 124.223.165.51
   #        port: 6060
   datasource:
-    username: root
-    password: Ab123@wcj
-    url: jdbc:mysql://124.223.165.51:3306/yjzs?useSSL=false&useUnicode=true&character=utf-8
+    username: yjzs
+    password: Ab123@wcj-yjzs
+    url: jdbc:mysql://1.15.62.118:3306/yjzs?useSSL=false&useUnicode=true&character=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   redis:
-    host: 180.76.181.56
+    host: 1.15.62.118
     port: 6379
     password: Ab123@wcj
 

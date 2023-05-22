@@ -2,12 +2,12 @@ server:
   port: 10010
 logging:
   level:
-    cn.itcast: debug
+    cn.itcast: info
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
 spring:
   redis:
-    host: 180.76.181.56
+    host: 1.15.62.118
     port: 6379
     password: Ab123@wcj
   application:
@@ -15,9 +15,9 @@ spring:
 
   cloud:
     nacos:
-      server-addr: 106.14.164.228:8848  # nacos服务地址
+      server-addr: 1.15.62.118:8848  # nacos服务地址
       discovery:
-        namespace: 05f5cf0f-116d-4640-869e-196087f99e72  # 命名空间ID  ,注意这个在bootstrap中不能放disciver下面，要放config下面
+        namespace: 744f4485-b836-4c86-be62-fe4972127e65  # 命名空间ID  ,注意这个在bootstrap中不能放disciver下面，要放config下面
 #        ip: 39.105.218.27
 #        port: 10010
 
